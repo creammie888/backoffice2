@@ -1,0 +1,161 @@
+.box-container {
+    margin: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.dashboard-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--secondary-color);
+}
+
+.dashboard-header h1{
+   font-size: 45px;
+   font-weight: 500;
+}
+
+.dashboard-header h1 span{
+    font-size: 40px;
+    font-weight: 300;
+ }
+
+.profile-pic img {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    border: 1px solid var(--primary-color);
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    margin-top: 30px;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 10px;
+}
+
+.card {
+    padding: 10px 30px 10px 30px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgb(0, 0, 0,0.2);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    /* color: var(--secondary-color); */
+}
+
+.card h3 {
+    font-weight: 500;
+    margin-right: 20px;
+    font-size: 18px;
+    color: var(--secondary-color);
+}
+
+.card h1 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+
+}
+.card h1 span {
+    font-weight: 300;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-header h3 {
+    margin-right: 40px;
+
+}
+
+.filter-month {
+    text-align: end;
+}
+
+.graph {
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .box-container {
+        margin: 30px;
+        margin-top: 50px;
+        flex-direction: column;
+    }
+
+    .dashboard-header {
+        align-items: start;
+    }
+    
+    .dashboard-header h1{
+       font-size: 35px;
+    }
+    
+    .dashboard-header h1 span{
+        font-size: 30px;
+     }
+  
+    .card {
+        padding: 15px;
+        width: 100%;
+        border-radius: 20px;
+    }
+    .card h3 {
+        font-size: 3.5vw;
+    }
+    
+    .card h1 {
+        font-size: 5.5vw;
+    
+    }
+    .card h1 span {
+        font-size: 4vw;
+    }
+
+    .graph {
+        height: 22vh;
+    }
+
+  
+    .history-timeline {
+        display: flex;
+        justify-content: center;
+        margin-right: 10px;
+    }
+
+    .user-chart {
+        width: 200;
+        height: 200;
+
+    }
+
+  
+  }
+
+

@@ -1,0 +1,185 @@
+.profile-header {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    border: 2px solid var(--primary-color);
+}
+
+.profile-info {
+    margin: 20px;
+}
+
+
+.profile-info p{
+    color: var(--primary-color);
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+}
+
+.vertical-line {
+    width: 1px;
+    height: 50vh;
+    background-color: #939393;
+}
+
+
+.profile-info th{
+    text-align: start;
+    font-weight: 400;
+    padding: 15px;
+    color: var(--primary-color);
+}
+
+.profile-info td{
+    padding-left: 20px;
+    text-align: end;
+    font-size: small;
+    color: #939393;
+}
+
+#edit-password-desktop {
+    padding: 0px 20px 0px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--green-color);
+    color: white;
+    cursor: pointer;
+    
+}
+#edit-password-moblie {
+    display: none;
+    
+}
+
+
+@media (max-width: 768px)  {
+
+    .profile-header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .profile-info {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile-info h1{
+        font-size: 20px;
+    }
+    .profile-info table{
+        margin: 0;
+    }
+    .profile-info th{
+        font-size: 12px;
+    }
+    .profile-info td{
+        padding-left: 0px;
+        font-size: 12px;
+    }
+    .vertical-line {
+        display: none;
+    }
+    #edit-password-desktop {
+        display: none;
+        
+    }
+    #edit-password-moblie {
+        padding: 0px 20px 0px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--green-color);
+        color: white;
+        display: block;
+        width: 70px;
+        text-align: center;
+        cursor: pointer;
+        
+    }
+
+    
+}
+
+
+
+
+/* ---------..edit password..------------- */
+
+.back-button {
+    border: none;
+    display: inline-flex;
+    cursor: pointer;
+    width: 50px;
+    background-color: transparent;
+    color: #939393;
+}
+
+.password-form {
+    width: 300px;
+    margin-top: 30px;
+}
+
+.password-input {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: medium;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #C6C6C6;
+}
+
+.password-input input{
+    border: none;
+    outline: none;
+    width: 80%;
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.form-group {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: small;
+    color: #939393;
+}
+.form-group label{
+    color: #747474;
+}
+
+.password-form button{
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: var(--ligthblue-color);
+    color: white;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+

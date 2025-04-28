@@ -4,7 +4,6 @@ import MainLayout from "./mainLayout";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import Profile from "./pages/profile";
-import Settings from "./pages/settings";
 import Permission from "./pages/permission";
 import Video from "./pages/video";
 import PasswordEdit from "./pages/passwordEdit";
@@ -20,7 +19,6 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/permission" element={<Permission />} />
           <Route path="/video" element={<Video />} />
-          <Route path="/settings" element={<Settings />} />
           <Route path="/passwordEdit" element={<PasswordEdit />} />
         </Route>
       </Routes>

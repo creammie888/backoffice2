@@ -23,7 +23,14 @@ const Profile = () => {
             <div className="box-container">
                 <div className="profile-header">
                     <div className="profile-picture">
-                        <img src={`http://localhost:3001/uploads/images/user_profile/${user.user_id}.png`} alt="Profile"/>
+                        <img
+                        src={`/uploads/images/user_profile/${user.user_id}.png`}
+                        alt="Profile"
+                        onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = 'uploads/images/default-profile.jpg';
+                        }}
+                        />
                     </div>
                     <div className="profile-info">
                         <h1>{user.firstname} {user.lastname}</h1>

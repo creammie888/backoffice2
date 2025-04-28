@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash} from "react-icons/fa";
 import axios from 'axios';
 
 const Login = () => {
@@ -8,6 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const [error, setError] = useState('');
+  const [show, setShow] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -53,11 +55,15 @@ const Login = () => {
 
                 <div className="password-container">
                   <input
-                    type="text" value={password}
+                    type={show ? "text" : "password"}
+                    value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                     placeholder='Password'
                   />
+                  <span onClick={() => setShow(!show)}>
+                      {show ? <FaEyeSlash /> : <FaEye />}
+                  </span>
                 </div>
 
                 <button type='submit'>

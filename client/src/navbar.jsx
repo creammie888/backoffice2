@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaHome, FaUserEdit, FaSignOutAlt, FaVideo, FaUsersCog } from "react-icons/fa";
+import { FaHome, FaUserEdit, FaVideo, FaUsersCog } from "react-icons/fa";
 
 const Navbar = () => {
 
@@ -44,7 +44,6 @@ const Navbar = () => {
       </div>
       <li className="logout">
         <Link to="/">
-          <FaSignOutAlt className="icon" />
           <span className="menu-label">Logout</span>
         </Link>
       </li>

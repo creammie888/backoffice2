@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import UserChart from '../components/UserChart';
 import HistoryTimeline from '../components/HistoryTimeline';
+import { FaUser } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 // import CardsSection from '../components/CardsSection';
 
 
@@ -14,6 +17,8 @@ const Dashboard = () => {
     const now = new Date();
     const [month, setMonth] = useState(now.getMonth() + 1); // 1-12
     const [year, setYear] = useState(now.getFullYear());
+    const navigate = useNavigate();
+
 
     
 
@@ -52,20 +57,6 @@ const Dashboard = () => {
     }, [month, year]);
     console.log("Filtering month/year", month, year);
 
-    
-    
-
-    // const handleFilter = () => {
-    //     axios.get(`http://localhost:3001/api/users-chart?month=${month}&year=${year}`)
-    //         .then(response => setUserChart(response.data))
-    //         .catch(error => console.error('Error fetching filtered data:', error));
-
-    //     // axios.get(`http://localhost:3001/api/history-timeline?month=${month}&year=${year}`)
-    //     //     .then(response => setHistoryTimeline(response.data))
-    //     //     .catch(error => console.error('Error fetching history timeline data:', error));
-    // };
-
-   
 
     if (!user || !stats) return <div>Loading...</div>;
 
@@ -76,8 +67,17 @@ const Dashboard = () => {
                     {user ? (
                             <>
                                 <h1>WELCOME<span> , {user.firstname}</span></h1>
-                                <div className="profile-pic">
-                                    <img src={`http://localhost:3001/uploads/images/user_profile/${user.user_id}.png`} alt="Profile"/>
+                                <div className="profile-pic" onClick={() => navigate('/profile')}>
+                                    <button>
+                                        <img
+                                        src={`/uploads/images/user_profile/${user.user_id}.png`}
+                                        alt="Profile"
+                                        onError={(e) => {
+                                            e.target.onerror = null;
+                                            e.target.src = 'uploads/images/default-profile.jpg';
+                                        }}
+                                        />
+                                    </button>
                                 </div>
                             </>
                         ) : (
@@ -90,6 +90,7 @@ const Dashboard = () => {
                         <div className="card">
                             <h3>Access Count</h3>
                             <h1>{stats.accessCount} <span>Times</span></h1>
+
                         </div>
                         <div className="card">
                             <h3>Daily Use</h3>
@@ -103,8 +104,14 @@ const Dashboard = () => {
                             </h1>
                         </div>
                         <div className="card">
-                            <h3>Visitor Active</h3>
-                            <h1>{stats.visitorActive}</h1>
+                            <div className="card-header">
+                                <h3>Visitor Active</h3>
+                                <div className={`status-indicator ${stats.visitorActive > 0 ? 'online' : 'offline'}`}></div>
+                            </div>
+                            <div className="visitor-info">
+                                <span className="icon"><FaUser /></span>
+                                <h1>{stats.visitorActive}</h1>
+                            </div>
                         </div>
                     </div>
                     <div className="cards">
@@ -139,7 +146,11 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-
+            </div>
+            <div className="footer">
+                <div className="post-it">
+                    <small className="updated-text">Last updated: {new Date().toLocaleDateString()}</small>
+                </div>
             </div>
         </div>
     )

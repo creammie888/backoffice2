@@ -24,7 +24,6 @@ const PasswordEdit = () => {
         const newErrors = {};
 
         if (!oldPassword) newErrors.oldPassword = "กรุณากรอกรหัสผ่านเดิม";
-        // if (oldPassword && user.) newErrors.oldPassword = "กรุณากรอกรหัสผ่านเดิม";
         if (!newPassword) newErrors.newPassword = "กรุณากรอกรหัสผ่านใหม่";
         if (!confirmPassword) newErrors.confirmPassword = "กรุณายืนยันรหัสผ่านใหม่";
         if (newPassword && confirmPassword && newPassword !== confirmPassword) {
@@ -114,7 +113,7 @@ const PasswordEdit = () => {
                     <label>New Password</label>
                     <div className="password-input">
                         <input
-                            type={showNew ? "text" : "password"}
+                            type={showNew? "text" : "password"}
                             value={newPassword}
                             onChange={(e) => setNewPassword(e.target.value)}
                             required

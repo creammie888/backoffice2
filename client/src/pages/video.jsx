@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 
 const Video = () => {
     const [user, setUser] = useState(null);
@@ -8,6 +10,7 @@ const Video = () => {
     const [loading, setLoading] = useState(true);
     const [dateFilter, setDateFilter] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
         
         useEffect(() => {
             const storedUser = localStorage.getItem('user');
@@ -66,8 +69,17 @@ const Video = () => {
                     <div className="box-container">
                         <div className="profile-top">
                             <p>{user.firstname} {user.lastname}</p>
-                            <div className="profile-pic">
-                                <img src={`http://localhost:3001/uploads/images/user_profile/${user.user_id}.png`} alt="Profile"/>
+                            <div className="profile-pic" onClick={() => navigate('/profile')}>
+                                <button>
+                                    <img
+                                        src={`/uploads/images/user_profile/${user.user_id}.png`}
+                                        alt="Profile"
+                                        onError={(e) => {
+                                        e.target.onerror = null;
+                                        e.target.src = 'uploads/images/default-profile.jpg';
+                                        }}
+                                    />
+                                </button>
                             </div>
                         </div>
                         <div className="search-box">

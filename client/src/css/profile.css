@@ -3,6 +3,15 @@
     flex-direction: row;
     align-items: end;
 }
+
+
+.profile-picture-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+
 .profile-picture {
     width: 150px;
     height: 150px;

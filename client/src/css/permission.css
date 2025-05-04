@@ -80,11 +80,11 @@
     transition: justify-content 0.3s ease;
  }
 
- .button-swith.active {
+ .button-switch.active {
     justify-content: flex-start;
   }
   
-  .button-swith.inactive {
+  .button-switch.inactive {
     justify-content: flex-end;
   }
 

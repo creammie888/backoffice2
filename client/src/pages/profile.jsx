@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaCamera} from "react-icons/fa";
 
 
 const Profile = () => {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
+    const [selectedImage, setSelectedImage] = useState(null);
+
 
     
     useEffect(() => {
@@ -22,15 +25,20 @@ const Profile = () => {
         <div className="main-container">
             <div className="box-container">
                 <div className="profile-header">
-                    <div className="profile-picture">
-                        <img
-                        src={`/uploads/images/user_profile/${user.user_id}.png`}
-                        alt="Profile"
-                        onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.src = 'uploads/images/default-profile.jpg';
-                        }}
-                        />
+                    <div className="profile-picture-container">
+                        <div className="profile-picture">
+                            <img
+                            src={`/uploads/images/user_profile/${user.user_id}.png`}
+                            alt="Profile"
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = 'uploads/images/default-profile.jpg';
+                            }}
+                            />
+                        </div>
+                        <label htmlFor="upload-edit-image" className="edit-icon">
+                            <FaCamera />
+                        </label>
                     </div>
                     <div className="profile-info">
                         <h1>{user.firstname} {user.lastname}</h1>
